@@ -1,0 +1,6 @@
+@import './styles/variables.css';
+@import './styles/base.css';
+
+:root {
+  color-scheme: light;
+}

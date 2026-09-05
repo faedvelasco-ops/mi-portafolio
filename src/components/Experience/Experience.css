@@ -1,0 +1,21 @@
+.experience__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.experience__period {
+  font-weight: 600;
+  color: var(--color-accent);
+  font-size: var(--fs-sm);
+}
+
+.experience__list ul {
+  list-style: disc;
+  padding-left: var(--space-4);
+}
+
+.experience__list li {
+  margin-bottom: var(--space-1);
+  color: var(--color-text-muted);
+}

@@ -1,0 +1,34 @@
+.hero {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, var(--color-accent-bg), transparent 70%),
+    var(--color-bg-alt);
+  text-align: center;
+}
+
+.hero__role {
+  font-weight: 600;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: var(--fs-sm);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  justify-content: center;
+}
+
+.hero__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  justify-content: center;
+  margin-top: var(--space-4);
+}
+
+.hero__link--disabled {
+  color: var(--color-text-muted);
+  opacity: 0.6;
+}
