@@ -79,13 +79,6 @@ src/
 
 Cada sección del PRD/roadmap académico corresponde a un componente independiente, con datos separados en `src/data/` cuando aplica, siguiendo el patrón: **componente de presentación + datos tipados**.
 
-## Decisiones técnicas
-
-- **Sin router (react-router-dom)**: con un solo proyecto que requiere vista de detalle (Changarritos), se optó por manejar la navegación entre "Inicio" y "Detalle" con estado de React (`useState` en `App.tsx`) en vez de agregar una dependencia de enrutamiento. Limitación aceptada: no hay URL propia para el detalle ni soporte nativo del botón "atrás" del navegador.
-- **Sin CMS/backend**: todo el contenido vive en archivos TypeScript tipados dentro de `src/data/`, versionados junto al código. No hay base de datos ni API propia.
-- **Iconos de marca (GitHub/LinkedIn) manuales**: la versión de `lucide-react` usada eliminó los iconos de marca por licenciamiento; se reintrodujeron como SVG propios en `src/components/icons/brand-icons.tsx`.
-- **Tema oscuro solo en el sidebar**: contraste intencional (sidebar oscuro fijo / contenido claro) en vez de un modo oscuro global, que queda como posible mejora futura (P2).
-
 ## Instalación
 
 ```bash
