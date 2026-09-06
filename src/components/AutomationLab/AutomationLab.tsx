@@ -1,3 +1,5 @@
+import { FlaskConical } from 'lucide-react'
+import Reveal from '../Reveal/Reveal'
 import './AutomationLab.css'
 
 function AutomationLab() {
@@ -12,15 +14,18 @@ function AutomationLab() {
           Automation Lab
         </h2>
         {/* TODO: proyectos de automatización pendientes de confirmar (Objetivo 11) */}
-        <div className="automation-lab__list">
-          <article className="card">
-            <h3>TODO: Nombre del proyecto de automatización</h3>
-            <p>TODO: framework, lenguaje, casos automatizados</p>
-            <a className="btn btn--secondary" href="#">
-              TODO: Repositorio
-            </a>
-          </article>
-        </div>
+        <Reveal>
+          <div className="automation-lab__list">
+            <article className="card">
+              <FlaskConical className="automation-lab__icon" size={24} aria-hidden="true" />
+              <h3>TODO: Nombre del proyecto de automatización</h3>
+              <p>TODO: framework, lenguaje, casos automatizados</p>
+              <a className="btn btn--secondary" href="#">
+                TODO: Repositorio
+              </a>
+            </article>
+          </div>
+        </Reveal>
       </div>
     </section>
   )

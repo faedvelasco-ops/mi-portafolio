@@ -1,9 +1,19 @@
+import { motion, useReducedMotion } from 'framer-motion'
+import { ArrowRight, Download } from 'lucide-react'
+import { LinkedinIcon, GithubIcon } from '../icons/brand-icons'
 import './Hero.css'
 
 function Hero() {
+  const shouldReduceMotion = useReducedMotion()
+
   return (
     <section id="hero" className="section hero" aria-labelledby="hero-heading">
-      <div className="container">
+      <motion.div
+        className="container"
+        initial={shouldReduceMotion ? undefined : { opacity: 0, y: 16 }}
+        animate={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
+      >
         <h1 id="hero-heading">Faed Federico Velasco Mero</h1>
         <p className="hero__role">Ingeniero QA</p>
         <p>
@@ -14,12 +24,14 @@ function Hero() {
         <div className="hero__actions">
           <a className="btn btn--primary" href="#projects">
             Ver proyectos
+            <ArrowRight size={18} aria-hidden="true" />
           </a>
           <a
             className="btn btn--secondary"
             href="/cv.pdf"
             download="Faed-Velasco-Mero-CV.pdf"
           >
+            <Download size={18} aria-hidden="true" />
             Descargar CV
             <span className="sr-only"> (PDF)</span>
           </a>
@@ -31,16 +43,24 @@ function Hero() {
               target="_blank"
               rel="noopener noreferrer"
             >
+              <LinkedinIcon size={18} />
               LinkedIn
               <span className="sr-only"> (abre en una pestaña nueva)</span>
             </a>
           </li>
           <li>
-            {/* TODO: aún no existe un repositorio de GitHub público */}
-            <span className="hero__link--disabled">TODO: GitHub</span>
+            <a
+              href="https://github.com/faedvelasco-ops"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GithubIcon size={18} />
+              GitHub
+              <span className="sr-only"> (abre en una pestaña nueva)</span>
+            </a>
           </li>
         </ul>
-      </div>
+      </motion.div>
     </section>
   )
 }

@@ -7,7 +7,7 @@ export interface Project {
   liveUrl?: string
   githubUrl?: string
   testsUrl?: string
-  detailsAnchor?: string
+  hasDetailPage?: boolean
 }
 
 export const projects: Project[] = [
@@ -19,6 +19,6 @@ export const projects: Project[] = [
     technologies: ['WordPress'],
     status: 'En producción',
     liveUrl: 'https://changarritosapp.com/',
-    detailsAnchor: '#changarritos',
+    hasDetailPage: true,
   },
 ]

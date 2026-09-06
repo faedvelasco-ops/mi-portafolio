@@ -1,3 +1,5 @@
+import { ExternalLink, FlaskConical } from 'lucide-react'
+import { GithubIcon } from '../icons/brand-icons'
 import type { ProjectDetailData } from '../../types/project'
 import './ProjectDetail.css'
 
@@ -20,15 +22,15 @@ function ProjectDetail({ data, image, imageAlt }: ProjectDetailProps) {
 
         {data.overview && (
           <>
-            <h3>Overview</h3>
+            <h3>Resumen</h3>
             <p>{data.overview}</p>
           </>
         )}
 
-        <h3>Problem</h3>
+        <h3>Problema</h3>
         <p>{data.problem}</p>
 
-        <h3>Solution</h3>
+        <h3>Solución</h3>
         <p>{data.solution}</p>
 
         <h3>Funcionalidades</h3>
@@ -40,12 +42,12 @@ function ProjectDetail({ data, image, imageAlt }: ProjectDetailProps) {
 
         {data.qaStrategy && (
           <>
-            <h3>QA Strategy</h3>
+            <h3>Estrategia de QA</h3>
             <p>{data.qaStrategy}</p>
           </>
         )}
 
-        <h3>Technologies</h3>
+        <h3>Tecnologías</h3>
         <ul className="project-detail__tech-list">
           {data.technologies.map((tech) => (
             <li key={tech}>{tech}</li>
@@ -68,6 +70,7 @@ function ProjectDetail({ data, image, imageAlt }: ProjectDetailProps) {
                 target="_blank"
                 rel="noopener noreferrer"
               >
+                <ExternalLink size={16} aria-hidden="true" />
                 Live / Producción
                 <span className="sr-only"> (abre en una pestaña nueva)</span>
               </a>
@@ -81,7 +84,8 @@ function ProjectDetail({ data, image, imageAlt }: ProjectDetailProps) {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Source Code
+                <GithubIcon size={16} />
+                Código Fuente
                 <span className="sr-only"> (abre en una pestaña nueva)</span>
               </a>
             </li>
@@ -94,7 +98,8 @@ function ProjectDetail({ data, image, imageAlt }: ProjectDetailProps) {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Automated Tests
+                <FlaskConical size={16} aria-hidden="true" />
+                Pruebas Automatizadas
                 <span className="sr-only"> (abre en una pestaña nueva)</span>
               </a>
             </li>

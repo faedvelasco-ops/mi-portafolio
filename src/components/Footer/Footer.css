@@ -8,3 +8,24 @@
   margin: 0;
   font-size: var(--fs-sm);
 }
+
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.footer__divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin-block: var(--space-3);
+  max-width: 200px;
+  margin-inline: auto;
+}
+
+.footer__credits {
+  color: var(--color-text-muted);
+  margin-top: var(--space-1);
+}

@@ -1,4 +1,5 @@
 import { educationEntries } from '../../data/education'
+import Reveal from '../Reveal/Reveal'
 import './Education.css'
 
 function Education() {
@@ -8,21 +9,25 @@ function Education() {
         <h2 className="section__heading" id="education-heading">
           Educación
         </h2>
-        <div className="education__list">
-          {educationEntries.map((entry) => (
-            <article className="card" key={entry.id}>
-              <h3>
-                {entry.program} — {entry.institution}
-              </h3>
-              <p className="education__period">{entry.period}</p>
-              {entry.highlights && (
-                <ul>
-                  {entry.highlights.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              )}
-            </article>
+        <div className="timeline">
+          {educationEntries.map((entry, index) => (
+            <Reveal key={entry.id} delay={index * 0.1}>
+              <div className="timeline__item">
+                <article className="card">
+                  <h3>
+                    {entry.program} — {entry.institution}
+                  </h3>
+                  <p className="education__period">{entry.period}</p>
+                  {entry.highlights && (
+                    <ul>
+                      {entry.highlights.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  )}
+                </article>
+              </div>
+            </Reveal>
           ))}
         </div>
       </div>

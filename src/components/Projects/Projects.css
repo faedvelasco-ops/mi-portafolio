@@ -4,13 +4,52 @@
   gap: var(--space-4);
 }
 
-.projects__grid img {
+.projects__media {
+  position: relative;
+  overflow: hidden;
   border-radius: var(--radius);
   margin-bottom: var(--space-3);
+}
+
+.projects__media img {
   aspect-ratio: 16 / 9;
   object-fit: cover;
   width: 100%;
   background: var(--color-bg-alt);
+  transition: transform 0.3s ease;
+}
+
+.projects__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: var(--space-3);
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.75), transparent 65%);
+  color: #fff;
+  font-weight: 600;
+  font-size: var(--fs-sm);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.projects__media:hover img {
+  transform: scale(1.05);
+}
+
+.projects__media:hover .projects__overlay,
+.card:focus-within .projects__overlay {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .projects__media img {
+    transition: none;
+  }
+
+  .projects__media:hover img {
+    transform: none;
+  }
 }
 
 .projects__status {
