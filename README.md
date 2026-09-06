@@ -109,6 +109,7 @@ No se instalaron frameworks de testing automatizado (Vitest/Jest/Playwright/Cypr
 
 ## Deployment
 
-Preparado para desplegar en **Vercel** (auto-detecta Vite: build `npm run build`, output `dist`). Pendiente de push a un repositorio de GitHub y conexión de la cuenta de Vercel del autor.
+Desplegado en **Vercel** (auto-detecta Vite: build `npm run build`, output `dist`), conectado al repositorio de GitHub — cada push a `main` despliega automáticamente.
 
-- URL de producción: `TODO` (pendiente).
+- Repositorio: [github.com/faedvelasco-ops/mi-portafolio](https://github.com/faedvelasco-ops/mi-portafolio)
+- URL de producción: [mi-portafolio-black-nu.vercel.app](https://mi-portafolio-black-nu.vercel.app/)
