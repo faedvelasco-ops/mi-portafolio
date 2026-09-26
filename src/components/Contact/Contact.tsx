@@ -1,14 +1,13 @@
 import type { ComponentType } from 'react'
-import { Mail } from 'lucide-react'
 import { LinkedinIcon, GithubIcon } from '../icons/brand-icons'
 import { contactLinks } from '../../data/contact'
 import Reveal from '../Reveal/Reveal'
+import ContactForm from './ContactForm'
 import './Contact.css'
 
 const linkIcons: Record<string, ComponentType<{ size?: number }>> = {
   github: GithubIcon,
   linkedin: LinkedinIcon,
-  email: Mail,
 }
 
 function Contact() {
@@ -19,34 +18,47 @@ function Contact() {
           Contacto
         </h2>
         <Reveal>
-          <ul className="contact__list">
-            {contactLinks.map((link) => {
-              const Icon = linkIcons[link.id]
-              return (
-                <li key={link.id}>
-                  {link.href ? (
-                    <a
-                      className="btn btn--secondary"
-                      href={link.href}
-                      target={link.id === 'email' ? undefined : '_blank'}
-                      rel={link.id === 'email' ? undefined : 'noopener noreferrer'}
-                    >
-                      <Icon size={18} />
-                      {link.label}
-                      {link.id !== 'email' && (
-                        <span className="sr-only"> (abre en una pestaña nueva)</span>
+          <div className="contact__layout">
+            <div className="contact__intro">
+              <p>
+                ¿Tienes una oportunidad, un proyecto o simplemente quieres
+                platicar sobre QA y automatización? Escríbeme por aquí o por
+                cualquiera de estos medios.
+              </p>
+              <ul className="contact__list">
+                {contactLinks.map((link) => {
+                  const Icon = linkIcons[link.id]
+                  return (
+                    <li key={link.id}>
+                      {link.href ? (
+                        <a
+                          className="btn btn--secondary"
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Icon size={18} />
+                          {link.label}
+                          <span className="sr-only"> (abre en una pestaña nueva)</span>
+                        </a>
+                      ) : (
+                        <span className="btn btn--secondary btn--disabled">
+                          <Icon size={18} />
+                          TODO: {link.label}
+                        </span>
                       )}
-                    </a>
-                  ) : (
-                    <span className="btn btn--secondary btn--disabled">
-                      <Icon size={18} />
-                      TODO: {link.label}
-                    </span>
-                  )}
-                </li>
-              )
-            })}
-          </ul>
+                    </li>
+                  )
+                })}
+              </ul>
+            </div>
+
+            <div className="contact__form-frame">
+              <div className="contact__form-card card">
+                <ContactForm />
+              </div>
+            </div>
+          </div>
         </Reveal>
       </div>
     </section>

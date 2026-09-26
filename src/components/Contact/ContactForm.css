@@ -1,0 +1,105 @@
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.contact-form__honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.contact-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.contact-form__field label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.contact-form__field label svg {
+  color: var(--color-accent);
+}
+
+.contact-form__field input,
+.contact-form__field textarea {
+  font-family: inherit;
+  font-size: var(--fs-base);
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  resize: vertical;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.contact-form__field input:focus,
+.contact-form__field textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-bg);
+}
+
+.contact-form__field input::placeholder,
+.contact-form__field textarea::placeholder {
+  color: var(--color-text-muted);
+}
+
+.contact-form__captcha {
+  display: flex;
+  justify-content: center;
+}
+
+.contact-form__submit {
+  align-self: flex-start;
+}
+
+.contact-form__spinner {
+  animation: contact-form-spin 0.8s linear infinite;
+}
+
+@keyframes contact-form-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-form__spinner {
+    animation: none;
+  }
+}
+
+.contact-form__status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  margin: 0;
+}
+
+.contact-form__status--success {
+  color: #15803d;
+  background: rgba(21, 128, 61, 0.1);
+}
+
+.contact-form__status--error {
+  color: #b91c1c;
+  background: rgba(185, 28, 28, 0.1);
+}

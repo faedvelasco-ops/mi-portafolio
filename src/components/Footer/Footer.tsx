@@ -11,11 +11,7 @@ function Footer() {
           {contactLinks.map((link) =>
             link.href ? (
               <li key={link.id}>
-                <a
-                  href={link.href}
-                  target={link.id === 'email' ? undefined : '_blank'}
-                  rel={link.id === 'email' ? undefined : 'noopener noreferrer'}
-                >
+                <a href={link.href} target="_blank" rel="noopener noreferrer">
                   {link.label}
                 </a>
               </li>
