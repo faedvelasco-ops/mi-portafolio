@@ -10,7 +10,6 @@ Este proyecto nació como una actividad académica de introducción a HTML5, y e
 - [Características](#características)
 - [Proyectos incluidos](#proyectos-incluidos)
 - [Arquitectura](#arquitectura)
-- [Decisiones técnicas](#decisiones-técnicas)
 - [Instalación](#instalación)
 - [Desarrollo](#desarrollo)
 - [Testing](#testing)
@@ -31,11 +30,13 @@ No se utilizan frameworks de componentes ni generadores de UI: cada sección es 
 
 - HTML5 semántico (`header`, `nav`, `main`, `section`, `article`, `footer`, tabla para idiomas).
 - Sidebar de navegación fija (desktop) con resaltado activo por scroll-spy (`IntersectionObserver` nativo, sin librerías).
-- Diseño responsive mobile-first (sidebar colapsa a barra superior en mobile/tablet).
+- Diseño responsive mobile-first (sidebar colapsa a un menú deslizante en mobile/tablet).
 - Accesibilidad: `alt` descriptivos, jerarquía de headings correcta, estados `focus-visible`, textos de enlace descriptivos, soporte de `prefers-reduced-motion` en todas las animaciones.
 - SEO básico: metadatos reales (`title`, `description`, Open Graph, Twitter Card), favicon.
 - CV descargable en PDF real (`/cv.pdf`), sincronizado con el documento fuente.
-- Vista de detalle de proyecto (Changarritos) como "página" separada dentro de la misma SPA (sin router, con estado de React) — ver [Decisiones técnicas](#decisiones-técnicas).
+- Vista de detalle de proyecto (Changarritos) como "página" separada dentro de la misma SPA (sin router, con estado de React).
+- Formulario de contacto real (Web3Forms + hCaptcha), sin backend propio.
+- Menú móvil como panel deslizante activado por un avatar fijo en la esquina superior.
 
 ## Proyectos incluidos
 
