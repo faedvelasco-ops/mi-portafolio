@@ -83,6 +83,26 @@
   font-size: var(--fs-sm);
 }
 
+.project-detail__videos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-3);
+}
+
+.project-detail__video-label {
+  font-weight: 600;
+  font-size: var(--fs-sm);
+  margin-bottom: var(--space-2);
+}
+
+.project-detail__video video {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  background: var(--color-bg-alt);
+}
+
 .project-links {
   display: flex;
   flex-wrap: wrap;

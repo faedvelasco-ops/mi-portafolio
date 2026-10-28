@@ -17,6 +17,9 @@ export const changarritos: ProjectDetailData = {
   upcomingTechnologies: ['React Native'],
   qaStrategy:
     'Validación funcional de las funcionalidades desde una perspectiva de QA.',
-  status: 'En producción (web) — versión nativa en desarrollo',
-  liveUrl: 'https://changarritosapp.com/',
+  status: 'La versión web ya no está en producción — disponible en video. Versión nativa (React Native) en desarrollo.',
+  videos: [
+    { label: 'Changarritos Web (grabación de cómo se veía)', src: '/videos/changarritos-web.mp4' },
+    { label: 'Changarritos App — nueva versión en React Native', src: '/videos/changarritos-app.mp4' },
+  ],
 }

@@ -17,8 +17,7 @@ export const projects: Project[] = [
     description:
       'Marketplace universitario para encontrar, comprar y vender productos y servicios dentro de la universidad.',
     technologies: ['WordPress'],
-    status: 'En producción',
-    liveUrl: 'https://changarritosapp.com/',
+    status: 'Disponible en video (ver detalles)',
     hasDetailPage: true,
   },
 ]

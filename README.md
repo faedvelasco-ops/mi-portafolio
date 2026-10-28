@@ -42,11 +42,11 @@ No se utilizan frameworks de componentes ni generadores de UI: cada sección es 
 
 ### Changarritos
 
-Marketplace universitario (WordPress) para encontrar, comprar y vender productos y servicios dentro de la universidad. En producción: [changarritosapp.com](https://changarritosapp.com/). Versión nativa (React Native) en desarrollo.
+Marketplace universitario (WordPress) para encontrar, comprar y vender productos y servicios dentro de la universidad. La versión web ya no está en producción; se conserva como video de referencia dentro del portafolio. Versión nativa (React Native) en desarrollo, también documentada en video.
 
 ### Automation Lab
 
-Sección reservada para evidencia práctica de QA Automation con Playwright (E2E) sobre Changarritos Web. **Pendiente** — bloqueado actualmente porque el entorno de desarrollo no tiene acceso de red saliente al dominio en producción; se retomará cuando se resuelva ese acceso.
+Sección reservada para evidencia práctica de QA Automation con Playwright (E2E). **Pendiente** — el plan original era automatizar Changarritos Web, pero al dar de baja ese sitio ya no es un objetivo válido para E2E. Se redefinirá sobre un objetivo activo (la app React Native u otro proyecto) antes de retomarse.
 
 ## Arquitectura
 

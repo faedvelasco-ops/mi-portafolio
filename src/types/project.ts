@@ -13,4 +13,5 @@ export interface ProjectDetailData {
   liveUrl?: string
   githubUrl?: string
   testsUrl?: string
+  videos?: { label: string; src: string }[]
 }

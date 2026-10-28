@@ -61,6 +61,20 @@ function ProjectDetail({ data, image, imageAlt }: ProjectDetailProps) {
 
         <p className="project-detail__status">{data.status}</p>
 
+        {data.videos && data.videos.length > 0 && (
+          <div className="project-detail__videos">
+            {data.videos.map((video) => (
+              <div className="project-detail__video" key={video.src}>
+                <p className="project-detail__video-label">{video.label}</p>
+                <video controls preload="metadata">
+                  <source src={video.src} type="video/mp4" />
+                  Tu navegador no soporta la reproducción de video.
+                </video>
+              </div>
+            ))}
+          </div>
+        )}
+
         <ul className="project-links">
           {data.liveUrl && (
             <li>
