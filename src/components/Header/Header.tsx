@@ -91,7 +91,7 @@ function Header({ onNavigateHome }: HeaderProps) {
 
         <img className="sidebar__photo" src={profilePhoto} alt="" width="110" height="110" />
         <p className="sidebar__name">Faed Velasco</p>
-        <p className="sidebar__role">Ingeniero QA</p>
+        <p className="sidebar__role">QA Engineer & Desarrollador</p>
 
         <ul className="sidebar__socials">
           <li>

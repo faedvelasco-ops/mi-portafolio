@@ -7,6 +7,29 @@ export interface SkillCategory {
 
 export const skillCategories: SkillCategory[] = [
   {
+    id: 'frontend',
+    title: 'Desarrollo Frontend',
+    skills: [
+      'HTML5',
+      'CSS',
+      'JavaScript',
+      'TypeScript',
+      'React',
+      'React Native',
+      'Next.js',
+    ],
+  },
+  {
+    id: 'programming',
+    title: 'Programación y Bases de Datos',
+    skills: ['Java', 'C#', 'C++', 'C', 'PHP', 'Python', 'SQL'],
+  },
+  {
+    id: 'apis-tools',
+    title: 'APIs & Herramientas',
+    skills: ['APIs REST', 'Postman', 'Swagger', 'Azure DevOps', 'Jira', 'Excel', 'Git / GitHub'],
+  },
+  {
     id: 'qa-manual',
     title: 'QA — Testing Manual',
     skills: [
@@ -23,29 +46,6 @@ export const skillCategories: SkillCategory[] = [
     title: 'QA Automation',
     skills: ['Playwright', 'TypeScript', 'E2E Testing', 'Test Automation'],
     inDevelopment: true,
-  },
-  {
-    id: 'apis-tools',
-    title: 'APIs & Herramientas',
-    skills: ['APIs REST', 'Postman', 'Swagger', 'Azure DevOps', 'Jira', 'Excel', 'Git / GitHub'],
-  },
-  {
-    id: 'programming',
-    title: 'Programación y Bases de Datos',
-    skills: ['Java', 'C#', 'C++', 'C', 'PHP', 'Python', 'SQL'],
-  },
-  {
-    id: 'frontend',
-    title: 'Desarrollo Frontend',
-    skills: [
-      'HTML5',
-      'CSS',
-      'JavaScript',
-      'TypeScript',
-      'React',
-      'React Native',
-      'Next.js',
-    ],
   },
   {
     id: 'methodologies',

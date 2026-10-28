@@ -15,11 +15,12 @@ function Hero() {
         transition={{ duration: 0.5, ease: 'easeOut' }}
       >
         <h1 id="hero-heading">Faed Federico Velasco Mero</h1>
-        <p className="hero__role">Ingeniero QA</p>
+        <p className="hero__role">QA Engineer & Desarrollador de Software</p>
         <p>
-          QA Engineer enfocado en el aseguramiento de la calidad de aplicaciones
-          empresariales, con experiencia en pruebas funcionales, exploratorias, de
-          regresión y de APIs en entornos ágiles.
+          Desarrollador de software con experiencia en React, TypeScript y Python,
+          complementado con un sólido background como QA Engineer que aporta rigor
+          técnico, atención al detalle y una mentalidad orientada a la calidad en
+          cada proyecto que construyo.
         </p>
         <div className="hero__actions">
           <a className="btn btn--primary" href="#projects">
