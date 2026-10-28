@@ -9,7 +9,6 @@ import Education from './components/Education/Education'
 import Certifications from './components/Certifications/Certifications'
 import Projects from './components/Projects/Projects'
 import Changarritos from './components/Changarritos/Changarritos'
-import AutomationLab from './components/AutomationLab/AutomationLab'
 import Languages from './components/Languages/Languages'
 import Contact from './components/Contact/Contact'
 import Footer from './components/Footer/Footer'
@@ -50,7 +49,6 @@ function App() {
               <Education />
               <Certifications />
               <Projects onOpenDetail={() => setActiveDetail('changarritos')} />
-              <AutomationLab />
               <Languages />
               <Contact />
             </motion.main>

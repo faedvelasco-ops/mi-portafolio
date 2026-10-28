@@ -1,16 +1,6 @@
 import { useEffect, useState } from 'react'
 import type { MouseEvent } from 'react'
-import {
-  Home,
-  User,
-  Code2,
-  Briefcase,
-  GraduationCap,
-  FolderKanban,
-  FlaskConical,
-  Mail,
-  X,
-} from 'lucide-react'
+import { Home, User, Code2, Briefcase, GraduationCap, FolderKanban, Mail, X } from 'lucide-react'
 import { LinkedinIcon, GithubIcon } from '../icons/brand-icons'
 import { useActiveSection } from '../../hooks/useActiveSection'
 import profilePhoto from '../../assets/profile-photo.jpeg'
@@ -23,7 +13,6 @@ const navItems = [
   { id: 'experience', label: 'Experiencia', Icon: Briefcase },
   { id: 'education', label: 'Educación', Icon: GraduationCap },
   { id: 'projects', label: 'Proyectos', Icon: FolderKanban },
-  { id: 'automation-lab', label: 'Automation Lab', Icon: FlaskConical },
   { id: 'contact', label: 'Contacto', Icon: Mail },
 ]
 

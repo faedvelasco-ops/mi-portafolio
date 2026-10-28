@@ -33,11 +33,6 @@ function Projects({ onOpenDetail }: ProjectsProps) {
                 <h3>{project.name}</h3>
                 <p>{project.description}</p>
                 <p className="projects__status">{project.status}</p>
-                <ul className="projects__tech-list">
-                  {project.technologies.map((tech) => (
-                    <li key={tech}>{tech}</li>
-                  ))}
-                </ul>
                 <ul className="project-links">
                   {project.liveUrl && (
                     <li>

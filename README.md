@@ -46,7 +46,7 @@ Marketplace universitario (WordPress) para encontrar, comprar y vender productos
 
 ### Automation Lab
 
-Sección reservada para evidencia práctica de QA Automation con Playwright (E2E). **Pendiente** — el plan original era automatizar Changarritos Web, pero al dar de baja ese sitio ya no es un objetivo válido para E2E. Se redefinirá sobre un objetivo activo (la app React Native u otro proyecto) antes de retomarse.
+Sección planeada para evidencia práctica de QA Automation con Playwright (E2E), **oculta temporalmente del sitio** (no se renderiza en `App.tsx`) hasta tener contenido real que mostrar. El componente (`src/components/AutomationLab/`) sigue en el proyecto para cuando se redefina el objetivo de automatización — el plan original era Changarritos Web, pero al dar de baja ese sitio ya no aplica.
 
 ## Arquitectura
 
