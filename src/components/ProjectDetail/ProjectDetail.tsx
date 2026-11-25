@@ -66,7 +66,7 @@ function ProjectDetail({ data, image, imageAlt }: ProjectDetailProps) {
             {data.videos.map((video) => (
               <div className="project-detail__video" key={video.src}>
                 <p className="project-detail__video-label">{video.label}</p>
-                <video controls preload="metadata">
+                <video controls preload="metadata" playsInline>
                   <source src={video.src} type="video/mp4" />
                   Tu navegador no soporta la reproducción de video.
                 </video>

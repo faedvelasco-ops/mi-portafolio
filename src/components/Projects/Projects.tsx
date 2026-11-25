@@ -6,9 +6,10 @@ import { projects } from '../../data/projects'
 import Reveal from '../Reveal/Reveal'
 import './Projects.css'
 
-const projectImages: Record<string, string> = {
-  changarritos: changarritosFlyer,
-  portafolio: portfolioPreview,
+/** Intrinsic sizes let the browser reserve space before the image loads (no layout shift). */
+const projectImages: Record<string, { src: string; width: number; height: number }> = {
+  changarritos: { src: changarritosFlyer, width: 1080, height: 1080 },
+  portafolio: { src: portfolioPreview, width: 1280, height: 720 },
 }
 
 interface ProjectsProps {
@@ -27,7 +28,14 @@ function Projects({ onOpenDetail }: ProjectsProps) {
             <Reveal key={project.id} delay={index * 0.1}>
               <article className="card">
                 <div className="projects__media">
-                  <img src={projectImages[project.id]} alt={`Vista previa de ${project.name}`} />
+                  <img
+                    src={projectImages[project.id].src}
+                    width={projectImages[project.id].width}
+                    height={projectImages[project.id].height}
+                    alt={`Vista previa de ${project.name}`}
+                    loading="lazy"
+                    decoding="async"
+                  />
                   <div className="projects__overlay" aria-hidden="true">
                     <span>{project.status}</span>
                   </div>

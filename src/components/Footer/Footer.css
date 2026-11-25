@@ -17,6 +17,13 @@
   margin-bottom: var(--space-3);
 }
 
+.footer__links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding-inline: var(--space-2);
+}
+
 .footer__divider {
   border: none;
   border-top: 1px solid var(--color-border);

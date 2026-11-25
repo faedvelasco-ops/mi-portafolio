@@ -22,6 +22,7 @@ function About() {
                 alt="Foto profesional de Faed Velasco"
                 width="280"
                 height="426"
+                decoding="async"
               />
             </div>
             <div className="about__content">

@@ -43,7 +43,14 @@ function Skills() {
               <ChevronLeft size={20} aria-hidden="true" />
             </button>
 
-            <div className="skills__track" ref={trackRef}>
+            <div
+              className="skills__track"
+              ref={trackRef}
+              // Scrollable region: focusable so keyboard users can scroll it with the arrow keys.
+              tabIndex={0}
+              role="region"
+              aria-label="Categorías de habilidades (desplazable)"
+            >
               {orderedCategories.map((category) => {
                 const Icon = categoryIcons[category.id]
                 return (

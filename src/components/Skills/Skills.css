@@ -65,8 +65,8 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: var(--color-bg);
   border: 1px solid var(--color-border);
@@ -83,11 +83,11 @@
 }
 
 .skills__nav--prev {
-  left: -18px;
+  left: -22px;
 }
 
 .skills__nav--next {
-  right: -18px;
+  right: -22px;
 }
 
 @media (min-width: 640px) {
