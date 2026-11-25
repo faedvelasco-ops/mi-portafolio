@@ -4,6 +4,23 @@
   gap: var(--space-4);
 }
 
+/* Same height for every card in a row; actions stay pinned to the bottom.
+   The card may be wrapped by the Reveal animation div or be the grid item itself. */
+.projects__grid > div {
+  display: flex;
+}
+
+.projects__grid .card {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.projects__grid .project-links {
+  margin-top: auto;
+  padding-top: var(--space-3);
+}
+
 .projects__media {
   position: relative;
   overflow: hidden;
@@ -15,6 +32,9 @@
   aspect-ratio: 16 / 9;
   object-fit: cover;
   width: 100%;
+  /* The width/height attributes only reserve space; without this the height
+     attribute would override the 16:9 aspect ratio. */
+  height: auto;
   background: var(--color-bg-alt);
   transition: transform 0.3s ease;
 }

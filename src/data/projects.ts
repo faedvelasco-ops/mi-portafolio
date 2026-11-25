@@ -27,7 +27,6 @@ export const projects: Project[] = [
       'Este sitio: SPA con React 19, TypeScript y Vite, con perfiles QA y Dev seleccionables por URL, CSS propio sin frameworks de UI y pruebas E2E con Playwright en GitHub Actions.',
     technologies: ['React', 'TypeScript', 'Vite', 'CSS', 'Playwright'],
     status: 'En línea',
-    liveUrl: 'https://mi-portafolio-black-nu.vercel.app/',
     githubUrl: 'https://github.com/faedvelasco-ops/mi-portafolio',
     testsUrl: 'https://github.com/faedvelasco-ops/mi-portafolio/actions/workflows/e2e.yml',
   },
