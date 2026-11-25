@@ -13,8 +13,8 @@ export const changarritos: ProjectDetailData = {
     'Administración de productos.',
     'Diseño e implementación de lógica de negocio y gestión de información.',
   ],
-  technologies: ['WordPress'],
-  upcomingTechnologies: ['React Native'],
+  technologies: ['WordPress', 'WooCommerce', 'Dokan', 'Astra'],
+  upcomingTechnologies: ['React Native', 'Expo'],
   qaStrategy:
     'Validación funcional de las funcionalidades desde una perspectiva de QA.',
   status: 'La versión web ya no está en producción — disponible en video. Versión nativa (React Native) en desarrollo.',

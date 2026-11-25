@@ -61,7 +61,7 @@ No se utilizan frameworks de componentes ni generadores de UI: cada sección es 
 
 ### Changarritos
 
-Marketplace universitario (WordPress) para encontrar, comprar y vender productos y servicios dentro de la universidad. La versión web ya no está en producción; se conserva como video de referencia dentro del portafolio. Versión nativa (React Native) en desarrollo, también documentada en video.
+Marketplace universitario (WordPress, WooCommerce, Dokan y Astra) para encontrar, comprar y vender productos y servicios dentro de la universidad. La versión web ya no está en producción; se conserva como video de referencia dentro del portafolio. Versión nativa (React Native con Expo) en desarrollo, también documentada en video.
 
 ### Portafolio profesional
 

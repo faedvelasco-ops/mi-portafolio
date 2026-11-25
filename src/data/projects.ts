@@ -16,7 +16,7 @@ export const projects: Project[] = [
     name: 'Changarritos',
     description:
       'Marketplace universitario para encontrar, comprar y vender productos y servicios dentro de la universidad.',
-    technologies: ['WordPress'],
+    technologies: ['WordPress', 'WooCommerce', 'Dokan', 'Astra'],
     status: 'Disponible en video (ver detalles)',
     hasDetailPage: true,
   },
