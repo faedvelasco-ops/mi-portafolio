@@ -1,12 +1,14 @@
 import { ExternalLink, FlaskConical, ArrowRight } from 'lucide-react'
 import { GithubIcon } from '../icons/brand-icons'
 import changarritosFlyer from '../../assets/changarritos-flyer.jpeg'
+import portfolioPreview from '../../assets/portfolio-preview.jpg'
 import { projects } from '../../data/projects'
 import Reveal from '../Reveal/Reveal'
 import './Projects.css'
 
 const projectImages: Record<string, string> = {
   changarritos: changarritosFlyer,
+  portafolio: portfolioPreview,
 }
 
 interface ProjectsProps {
@@ -15,7 +17,7 @@ interface ProjectsProps {
 
 function Projects({ onOpenDetail }: ProjectsProps) {
   return (
-    <section id="projects" className="section section--alt projects" aria-labelledby="projects-heading">
+    <section id="projects" className="section projects" aria-labelledby="projects-heading">
       <div className="container">
         <h2 className="section__heading" id="projects-heading">
           Proyectos
