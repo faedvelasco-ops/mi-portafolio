@@ -27,67 +27,73 @@ function AutomationLab() {
                   <FlaskConical className="automation-lab__icon" size={24} aria-hidden="true" />
                   <h3 id={`${project.id}-heading`}>{project.name}</h3>
                 </div>
-                <p>{project.summary}</p>
+                <p className="automation-lab__summary">{project.summary}</p>
 
-                <dl className="automation-lab__stats">
-                  {project.stats.map((stat) => (
-                    <div key={stat.label} className="automation-lab__stat">
-                      <dt>{stat.label}</dt>
-                      <dd>{stat.value}</dd>
-                    </div>
-                  ))}
-                </dl>
+                <div className="automation-lab__body">
+                  <div className="automation-lab__aside">
+                    <dl className="automation-lab__stats">
+                      {project.stats.map((stat) => (
+                        <div key={stat.label} className="automation-lab__stat">
+                          <dt>{stat.label}</dt>
+                          <dd>{stat.value}</dd>
+                        </div>
+                      ))}
+                    </dl>
 
-                <ul className="automation-lab__highlights">
-                  {project.highlights.map((highlight) => (
-                    <li key={highlight}>{highlight}</li>
-                  ))}
-                </ul>
+                    <ul className="project-links automation-lab__links">
+                      <li>
+                        <a
+                          className="btn btn--primary"
+                          href={project.reportUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <FileBarChart size={16} aria-hidden="true" />
+                          Ver reporte en vivo
+                          <span className="sr-only"> (abre en una pestaña nueva)</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          className="btn btn--secondary"
+                          href={project.repoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <GithubIcon size={16} />
+                          Código fuente
+                          <span className="sr-only"> (abre en una pestaña nueva)</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          className="btn btn--secondary"
+                          href={project.ciUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <PlayCircle size={16} aria-hidden="true" />
+                          Ejecuciones de CI
+                          <span className="sr-only"> (abre en una pestaña nueva)</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
 
-                <ul className="automation-lab__tech" aria-label="Tecnologías">
-                  {project.technologies.map((tech) => (
-                    <li key={tech}>{tech}</li>
-                  ))}
-                </ul>
+                  <div className="automation-lab__main">
+                    <ul className="automation-lab__highlights">
+                      {project.highlights.map((highlight) => (
+                        <li key={highlight}>{highlight}</li>
+                      ))}
+                    </ul>
 
-                <ul className="project-links">
-                  <li>
-                    <a
-                      className="btn btn--primary"
-                      href={project.reportUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <FileBarChart size={16} aria-hidden="true" />
-                      Ver reporte en vivo
-                      <span className="sr-only"> (abre en una pestaña nueva)</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      className="btn btn--secondary"
-                      href={project.repoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <GithubIcon size={16} />
-                      Código fuente
-                      <span className="sr-only"> (abre en una pestaña nueva)</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      className="btn btn--secondary"
-                      href={project.ciUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <PlayCircle size={16} aria-hidden="true" />
-                      Ejecuciones de CI
-                      <span className="sr-only"> (abre en una pestaña nueva)</span>
-                    </a>
-                  </li>
-                </ul>
+                    <ul className="automation-lab__tech" aria-label="Tecnologías">
+                      {project.technologies.map((tech) => (
+                        <li key={tech}>{tech}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
               </article>
             </Reveal>
           ))}
