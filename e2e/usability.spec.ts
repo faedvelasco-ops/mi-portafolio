@@ -13,6 +13,9 @@ test.describe('Accessibility (axe)', () => {
       await portfolio.goto(path)
 
       const results = await new AxeBuilder({ page })
+        // hCaptcha renders third-party markup inside an iframe that this site cannot change
+        // (it intermittently reported link-name on hCaptcha's own logo link).
+        .exclude('iframe[data-hcaptcha-widget-id]')
         .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'])
         .analyze()
       const blocking = results.violations
