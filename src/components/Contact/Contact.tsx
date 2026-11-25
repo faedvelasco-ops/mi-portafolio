@@ -12,7 +12,7 @@ const linkIcons: Record<string, ComponentType<{ size?: number }>> = {
 
 function Contact() {
   return (
-    <section id="contact" className="section contact" aria-labelledby="contact-heading">
+    <section id="contact" className="section section--alt contact" aria-labelledby="contact-heading">
       <div className="container">
         <h2 className="section__heading" id="contact-heading">
           Contacto

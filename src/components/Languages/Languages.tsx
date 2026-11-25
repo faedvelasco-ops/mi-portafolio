@@ -6,7 +6,7 @@ function Languages() {
   return (
     <section
       id="languages"
-      className="section section--alt languages"
+      className="section languages"
       aria-labelledby="languages-heading"
     >
       <div className="container">

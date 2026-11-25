@@ -4,7 +4,7 @@ import './Education.css'
 
 function Education() {
   return (
-    <section id="education" className="section education" aria-labelledby="education-heading">
+    <section id="education" className="section section--alt education" aria-labelledby="education-heading">
       <div className="container">
         <h2 className="section__heading" id="education-heading">
           Educación

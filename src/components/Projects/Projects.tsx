@@ -15,7 +15,7 @@ interface ProjectsProps {
 
 function Projects({ onOpenDetail }: ProjectsProps) {
   return (
-    <section id="projects" className="section projects" aria-labelledby="projects-heading">
+    <section id="projects" className="section section--alt projects" aria-labelledby="projects-heading">
       <div className="container">
         <h2 className="section__heading" id="projects-heading">
           Proyectos

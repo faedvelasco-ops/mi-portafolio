@@ -7,7 +7,7 @@ function Certifications() {
   return (
     <section
       id="certifications"
-      className="section section--alt certifications"
+      className="section certifications"
       aria-labelledby="certifications-heading"
     >
       <div className="container">
