@@ -23,6 +23,7 @@ export default defineConfig({
   projects: [
     { name: 'desktop', use: { ...devices['Desktop Chrome'] } },
     { name: 'mobile', use: { ...devices['Pixel 7'] } },
+    { name: 'iphone', use: { ...devices['iPhone 13'] } },
   ],
   // Serves the production build; run `npm run build` first (test:e2e does it).
   webServer: {

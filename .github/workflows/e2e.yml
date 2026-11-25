@@ -36,8 +36,8 @@ jobs:
       - name: Build (type check + production bundle)
         run: npm run build
 
-      - name: Install Playwright Chromium
-        run: npx playwright install --with-deps chromium
+      - name: Install Playwright browsers (Chromium, WebKit)
+        run: npx playwright install --with-deps chromium webkit
 
       - name: Run E2E tests
         run: npx playwright test
