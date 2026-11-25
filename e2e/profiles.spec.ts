@@ -122,7 +122,10 @@ test.describe('Page health', () => {
   for (const path of ['/qa', '/dev']) {
     test(`${path} loads without console errors`, { tag: ['@smoke'] }, async ({ page, portfolio, consoleErrors }) => {
       await portfolio.goto(path)
-      await page.waitForLoadState('networkidle')
+      // 'load' instead of 'networkidle': third-party widgets (hCaptcha) can keep the
+      // network busy and would make this test depend on an external service.
+      await page.waitForLoadState('load')
+      await expect(page.locator('#contact')).toBeAttached()
 
       expect(consoleErrors).toEqual([])
     })

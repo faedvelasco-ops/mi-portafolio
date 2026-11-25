@@ -1,7 +1,8 @@
 import { defineConfig, devices } from '@playwright/test'
 
 const isCI = !!process.env.CI
-const PORT = 4391
+// Override with E2E_PORT when 4391 is already taken by another local server.
+const PORT = Number(process.env.E2E_PORT ?? 4391)
 
 export default defineConfig({
   testDir: './e2e',
