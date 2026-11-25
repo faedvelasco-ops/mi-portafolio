@@ -1,6 +1,6 @@
 # Portafolio Profesional — Faed Velasco
 
-Portafolio web y CV interactivo de **Faed Velasco**, Ingeniero QA enfocado en aseguramiento de calidad, pruebas funcionales/exploratorias/de regresión, testing de APIs y automatización de pruebas (Playwright, en desarrollo activo).
+Portafolio web y CV interactivo de **Faed Velasco**, QA Engineer enfocado en aseguramiento de calidad, pruebas funcionales/exploratorias/de regresión y testing de APIs, con proyectos propios de automatización E2E y de API con Playwright y TypeScript. El desarrollo de software (React, TypeScript) aparece como complemento del perfil.
 
 Este proyecto nació como una actividad académica de introducción a HTML5, y evolucionó hacia un portafolio profesional real construido con React y TypeScript, manteniendo HTML semántico como base.
 
@@ -34,6 +34,7 @@ No se utilizan frameworks de componentes ni generadores de UI: cada sección es 
 - Accesibilidad: `alt` descriptivos, jerarquía de headings correcta, estados `focus-visible`, textos de enlace descriptivos, soporte de `prefers-reduced-motion` en todas las animaciones.
 - SEO básico: metadatos reales (`title`, `description`, Open Graph, Twitter Card), favicon.
 - CV descargable en PDF real (`/cv.pdf`), sincronizado con el documento fuente.
+- Sección Automation Lab con enlaces al repositorio, al reporte HTML en vivo y a las ejecuciones de CI del proyecto de automatización.
 - Vista de detalle de proyecto (Changarritos) como "página" separada dentro de la misma SPA (sin router, con estado de React).
 - Formulario de contacto real (Web3Forms + hCaptcha), sin backend propio.
 - Menú móvil como panel deslizante activado por un avatar fijo en la esquina superior.
@@ -46,7 +47,9 @@ Marketplace universitario (WordPress) para encontrar, comprar y vender productos
 
 ### Automation Lab
 
-Sección planeada para evidencia práctica de QA Automation con Playwright (E2E), **oculta temporalmente del sitio** (no se renderiza en `App.tsx`) hasta tener contenido real que mostrar. El componente (`src/components/AutomationLab/`) sigue en el proyecto para cuando se redefina el objetivo de automatización — el plan original era Changarritos Web, pero al dar de baja ese sitio ya no aplica.
+Sección visible después de Experiencia (y en la navegación) con evidencia práctica de QA Automation. Los datos viven en `src/data/automationLab.ts`.
+
+- **[playwright-qa-automation](https://github.com/faedvelasco-ops/playwright-qa-automation)**: suite de Playwright + TypeScript con 45 pruebas por ejecución: E2E sobre SauceDemo en Chromium, Firefox y WebKit, y pruebas de API sobre Restful Booker. Usa Page Object Model, fixtures propios y validación de esquemas con zod. Corre en GitHub Actions en cada push y publica el [reporte HTML en vivo](https://faedvelasco-ops.github.io/playwright-qa-automation/).
 
 ## Arquitectura
 
@@ -99,7 +102,7 @@ npm run preview    # sirve el build de producción localmente
 
 Validación manual realizada durante el desarrollo: navegación y anclas, enlaces externos, descarga de CV, responsive (desktop/tablet/mobile vía revisión de CSS), accesibilidad (jerarquía de headings, alt text, foco, `prefers-reduced-motion`), y `npm run build`/`lint` en cada cambio.
 
-No se instalaron frameworks de testing automatizado (Vitest/Jest/Playwright/Cypress) para el sitio en sí, evaluando que el proyecto es mayormente contenido estático sin lógica de negocio compleja que justifique pruebas unitarias por ahora. Playwright se usará específicamente para automatizar y evidenciar pruebas E2E reales sobre Changarritos Web en la sección Automation Lab (pendiente, ver arriba).
+No se instalaron frameworks de testing automatizado (Vitest/Jest/Playwright/Cypress) para el sitio en sí, evaluando que el proyecto es mayormente contenido estático sin lógica de negocio compleja que justifique pruebas unitarias por ahora. La evidencia de automatización con Playwright vive en un repositorio aparte ([playwright-qa-automation](https://github.com/faedvelasco-ops/playwright-qa-automation)), enlazado desde la sección Automation Lab.
 
 ## Deployment
 
