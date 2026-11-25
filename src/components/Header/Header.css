@@ -96,7 +96,7 @@
   border-radius: 50%;
   margin: 0 auto var(--space-3);
   border: 4px solid var(--sidebar-bg-raised);
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid var(--color-accent-on-dark);
 }
 
 .sidebar__name {
@@ -108,7 +108,7 @@
 
 .sidebar__role {
   font-weight: 600;
-  color: var(--color-accent);
+  color: var(--color-accent-on-dark);
   text-transform: uppercase;
   letter-spacing: 0.04em;
   font-size: var(--fs-sm);
@@ -178,7 +178,7 @@
 }
 
 .sidebar__nav-list a.is-active {
-  color: var(--color-accent);
+  color: var(--color-accent-on-dark);
   background: var(--sidebar-bg-raised);
 }
 

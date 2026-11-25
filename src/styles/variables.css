@@ -5,10 +5,8 @@
   --color-text: #1c222b;
   --color-text-muted: #5b6472;
   --color-border: #e2e5ea;
-  --color-accent: #2563eb;
-  --color-accent-dark: #1d4ed8;
+  /* Accent colors are set per profile below (QA is the default). */
   --color-accent-contrast: #ffffff;
-  --color-accent-bg: rgba(37, 99, 235, 0.1);
 
   /* Typography */
   --font-sans:
@@ -35,4 +33,64 @@
   --sidebar-width: 280px;
   --radius: 8px;
   --shadow: 0 1px 3px rgba(16, 24, 40, 0.08), 0 1px 2px rgba(16, 24, 40, 0.06);
+}
+
+/*
+ * Profile accents. Contrast (WCAG AA, normal text >= 4.5:1):
+ * - QA  #0f766e: 5.47 on #fff, 5.05 on --color-bg-alt; on-dark #5eead4: 12.2 on the sidebar
+ * - Dev #6d28d9: 7.10 on #fff, 6.56 on --color-bg-alt; on-dark #c4b5fd:  9.8 on the sidebar
+ * White text on the accent (buttons) uses the same ratios as "on #fff".
+ */
+:root,
+:root[data-profile='qa'] {
+  --color-accent: #0f766e;
+  --color-accent-dark: #115e59;
+  --color-accent-bg: rgba(15, 118, 110, 0.12);
+  --color-accent-on-dark: #5eead4;
+}
+
+:root[data-profile='dev'] {
+  --color-accent: #6d28d9;
+  --color-accent-dark: #5b21b6;
+  --color-accent-bg: rgba(109, 40, 217, 0.1);
+  --color-accent-on-dark: #c4b5fd;
+}
+
+/* Registered so the accent can animate smoothly when the profile changes. */
+@property --color-accent {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #0f766e;
+}
+
+@property --color-accent-dark {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #115e59;
+}
+
+@property --color-accent-bg {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgba(15, 118, 110, 0.12);
+}
+
+@property --color-accent-on-dark {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #5eead4;
+}
+
+:root {
+  transition:
+    --color-accent 0.4s ease,
+    --color-accent-dark 0.4s ease,
+    --color-accent-bg 0.4s ease,
+    --color-accent-on-dark 0.4s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    transition: none;
+  }
 }
