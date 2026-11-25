@@ -15,16 +15,17 @@ function Hero() {
         transition={{ duration: 0.5, ease: 'easeOut' }}
       >
         <h1 id="hero-heading">Faed Federico Velasco Mero</h1>
-        <p className="hero__role">QA Engineer & Desarrollador de Software</p>
+        <p className="hero__role">QA Engineer · Playwright & API Testing</p>
         <p>
-          Desarrollador de software con experiencia en React, TypeScript y Python,
-          complementado con un sólido background como QA Engineer que aporta rigor
-          técnico, atención al detalle y una mentalidad orientada a la calidad en
-          cada proyecto que construyo.
+          QA Engineer en CONTPAQi, con experiencia previa como Ingeniero de Pruebas
+          en IBM. Diseño y ejecuto pruebas funcionales, de regresión y de APIs en
+          aplicaciones empresariales, y en proyectos propios automatizo pruebas E2E
+          y de API con Playwright y TypeScript. El desarrollo de software (React,
+          TypeScript) complementa mi perfil: entiendo cómo se construye lo que pruebo.
         </p>
         <div className="hero__actions">
-          <a className="btn btn--primary" href="#projects">
-            Ver proyectos
+          <a className="btn btn--primary" href="#automation-lab">
+            Ver Automation Lab
             <ArrowRight size={18} aria-hidden="true" />
           </a>
           <a

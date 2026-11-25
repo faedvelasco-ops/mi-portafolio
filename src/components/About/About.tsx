@@ -26,27 +26,26 @@ function About() {
                 Perfil profesional
               </h2>
               <p>
-                Desarrollador de software con experiencia construyendo aplicaciones
-                web (React, TypeScript, Next.js) y en programación con Java y
-                Python, complementado con un sólido background como QA Engineer en
-                aseguramiento de calidad de aplicaciones empresariales.
+                QA Engineer con experiencia en aseguramiento de calidad de
+                aplicaciones empresariales: pruebas funcionales, exploratorias, de
+                regresión y de APIs, gestión de defectos en Azure DevOps y trabajo
+                con equipos de desarrollo bajo Scrum.
               </p>
               <p>
-                Cuento con experiencia construyendo proyectos propios de principio a
-                fin (ver Changarritos) y formación en ciencia de datos, lo que me
-                permite abordar los sistemas desde una perspectiva técnica y
-                analítica. Mi experiencia en QA —pruebas funcionales, de regresión y
-                de APIs dentro de entornos ágiles— me da una ventaja real al
-                desarrollar: pienso en cómo se probará el código y en los casos
-                límite desde el diseño.
+                Fuera del trabajo construyo proyectos de automatización con Playwright
+                y TypeScript (ver Automation Lab) y proyectos de desarrollo de
+                principio a fin (ver Changarritos). Mi formación en desarrollo de
+                software (React, TypeScript, Java, Python) y en ciencia de datos me
+                permite entender cómo se construye lo que pruebo y comunicarme con
+                los desarrolladores en su mismo lenguaje.
               </p>
               <h3>Especialidades</h3>
               <ul className="about__specialties">
+                <li>Pruebas funcionales, exploratorias y de regresión</li>
+                <li>Pruebas de APIs REST (Postman, Swagger)</li>
+                <li>Automatización E2E y de API con Playwright y TypeScript (proyectos propios)</li>
+                <li>Gestión de defectos con Azure DevOps y metodologías ágiles (Scrum)</li>
                 <li>Desarrollo frontend con React y TypeScript</li>
-                <li>Programación con Java, Python y SQL</li>
-                <li>Diseño y consumo de APIs</li>
-                <li>Aseguramiento de la calidad (QA) y pruebas funcionales/de regresión</li>
-                <li>Metodologías ágiles (Scrum)</li>
               </ul>
             </div>
           </div>

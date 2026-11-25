@@ -7,6 +7,40 @@ export interface SkillCategory {
 
 export const skillCategories: SkillCategory[] = [
   {
+    id: 'qa-manual',
+    title: 'QA — Testing Manual',
+    skills: [
+      'Pruebas funcionales',
+      'Pruebas exploratorias',
+      'Pruebas de regresión',
+      'Pruebas estáticas',
+      'Diseño de casos de prueba',
+      'Gestión del ciclo de vida de defectos',
+    ],
+  },
+  {
+    id: 'qa-automation',
+    title: 'QA Automation',
+    skills: [
+      'Playwright',
+      'TypeScript',
+      'E2E Testing',
+      'API Testing',
+      'Page Object Model',
+      'GitHub Actions (CI)',
+    ],
+  },
+  {
+    id: 'apis-tools',
+    title: 'APIs & Herramientas',
+    skills: ['APIs REST', 'Postman', 'Swagger', 'Azure DevOps', 'Jira', 'Excel', 'Git / GitHub'],
+  },
+  {
+    id: 'methodologies',
+    title: 'Metodologías',
+    skills: ['Scrum', 'Kanban'],
+  },
+  {
     id: 'frontend',
     title: 'Desarrollo Frontend',
     skills: [
@@ -23,33 +57,5 @@ export const skillCategories: SkillCategory[] = [
     id: 'programming',
     title: 'Programación y Bases de Datos',
     skills: ['Java', 'C#', 'C++', 'C', 'PHP', 'Python', 'SQL'],
-  },
-  {
-    id: 'apis-tools',
-    title: 'APIs & Herramientas',
-    skills: ['APIs REST', 'Postman', 'Swagger', 'Azure DevOps', 'Jira', 'Excel', 'Git / GitHub'],
-  },
-  {
-    id: 'qa-manual',
-    title: 'QA — Testing Manual',
-    skills: [
-      'Pruebas funcionales',
-      'Pruebas exploratorias',
-      'Pruebas de regresión',
-      'Pruebas estáticas',
-      'Diseño de casos de prueba',
-      'Gestión del ciclo de vida de defectos',
-    ],
-  },
-  {
-    id: 'qa-automation',
-    title: 'QA Automation',
-    skills: ['Playwright', 'TypeScript', 'E2E Testing', 'Test Automation'],
-    inDevelopment: true,
-  },
-  {
-    id: 'methodologies',
-    title: 'Metodologías',
-    skills: ['Scrum', 'Kanban'],
   },
 ]
