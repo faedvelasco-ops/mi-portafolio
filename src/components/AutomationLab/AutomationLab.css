@@ -12,31 +12,51 @@
   max-width: 75ch;
 }
 
-/* One column on small screens; on desktop the details sit on the left and
-   the numbers and actions on the right, so the card uses the full width. */
-.automation-lab__body {
-  display: grid;
+/*
+ * Mobile: one column in DOM order (title, summary, figures, actions, details).
+ * Desktop: two columns from the top. Left: title, summary, details.
+ * Right: figures and actions, spanning the full height next to a divider.
+ */
+.automation-lab__aside {
+  display: flex;
+  flex-direction: column;
   gap: var(--space-4);
-  margin-top: var(--space-4);
+  margin-block: var(--space-4);
+}
+
+.automation-lab__links {
+  margin-top: 0;
 }
 
 @media (min-width: 900px) {
-  .automation-lab__body {
+  .automation-lab__card {
+    display: grid;
     grid-template-columns: minmax(0, 1.6fr) minmax(260px, 1fr);
-    gap: var(--space-5);
-    align-items: start;
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas:
+      'header aside'
+      'summary aside'
+      'main aside';
+    column-gap: var(--space-5);
+  }
+
+  .automation-lab__header {
+    grid-area: header;
+  }
+
+  .automation-lab__summary {
+    grid-area: summary;
   }
 
   .automation-lab__main {
-    grid-column: 1;
-    grid-row: 1;
+    grid-area: main;
+    margin-top: var(--space-4);
   }
 
-  /* The aside comes first in the DOM (numbers and actions first on mobile);
-     on desktop it moves to the right column. */
   .automation-lab__aside {
-    grid-column: 2;
-    grid-row: 1;
+    grid-area: aside;
+    justify-content: center;
+    margin-block: 0;
     padding-left: var(--space-5);
     border-left: 1px solid var(--color-border);
   }
@@ -80,7 +100,7 @@
   display: flex;
   align-items: center;
   gap: var(--space-3);
-  padding-block: var(--space-2);
+  padding-block: var(--space-3);
 }
 
 .automation-lab__stat + .automation-lab__stat {
