@@ -61,18 +61,14 @@
   outline-color: var(--color-accent-on-dark);
 }
 
-/* Floating variant for small screens, where the sidebar is a drawer. */
-.profile-switch--floating {
-  position: fixed;
-  top: var(--space-3);
-  right: var(--space-3);
-  z-index: 60;
+/* Variant in the mobile top bar: no shadow, larger touch targets. */
+.profile-switch--bar {
+  box-shadow: none;
 }
 
-@media (min-width: 993px) {
-  .profile-switch--floating {
-    display: none;
-  }
+.profile-switch--bar .profile-switch__option {
+  min-height: 44px;
+  min-width: 4rem;
 }
 
 @media (max-width: 992px) {
@@ -84,5 +80,12 @@
 @media (prefers-reduced-motion: reduce) {
   .profile-switch__option {
     transition: none;
+  }
+}
+
+/* Touch screens (e.g. tablets showing the desktop sidebar): 44px targets. */
+@media (pointer: coarse) {
+  .profile-switch__option {
+    min-height: 44px;
   }
 }

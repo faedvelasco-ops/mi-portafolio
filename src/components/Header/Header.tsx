@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import type { MouseEvent } from 'react'
 import {
   Home,
@@ -48,11 +48,18 @@ function Header({ onNavigateHome }: HeaderProps) {
   const navSectionIds = useMemo(() => navItems.map((item) => item.id), [navItems])
   const activeId = useActiveSection(navSectionIds, !onNavigateHome)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMobile, setIsMobile] = useState(() => window.matchMedia('(max-width: 992px)').matches)
+  const toggleRef = useRef<HTMLButtonElement>(null)
+  const closeRef = useRef<HTMLButtonElement>(null)
+  const wasOpen = useRef(false)
 
   // Cierra el menú móvil si la ventana crece a tamaño de escritorio.
   useEffect(() => {
     const mediaQuery = window.matchMedia('(min-width: 993px)')
-    const handleChange = () => setIsMenuOpen(false)
+    const handleChange = () => {
+      setIsMenuOpen(false)
+      setIsMobile(!mediaQuery.matches)
+    }
     mediaQuery.addEventListener('change', handleChange)
     return () => mediaQuery.removeEventListener('change', handleChange)
   }, [])
@@ -64,6 +71,22 @@ function Header({ onNavigateHome }: HeaderProps) {
     document.body.style.overflow = 'hidden'
     return () => {
       document.body.style.overflow = previousOverflow
+    }
+  }, [isMenuOpen])
+
+  // Menú móvil como diálogo: el foco entra al abrir y regresa al botón al cerrar,
+  // y el resto de la página queda inerte mientras está abierto.
+  useEffect(() => {
+    if (isMenuOpen) {
+      wasOpen.current = true
+      closeRef.current?.focus()
+      const background = document.querySelectorAll('.app-content, .mobile-bar, .profile-notice')
+      background.forEach((element) => element.setAttribute('inert', ''))
+      return () => background.forEach((element) => element.removeAttribute('inert'))
+    }
+    if (wasOpen.current) {
+      wasOpen.current = false
+      toggleRef.current?.focus()
     }
   }, [isMenuOpen])
 
@@ -87,23 +110,33 @@ function Header({ onNavigateHome }: HeaderProps) {
 
   return (
     <>
-      <button
-        type="button"
-        className="sidebar-toggle"
-        onClick={() => setIsMenuOpen((open) => !open)}
-        aria-expanded={isMenuOpen}
-        aria-controls="sidebar"
-        aria-label={isMenuOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'}
-      >
-        <img src={profilePhoto} alt="" width="44" height="44" />
-      </button>
+      <div className="mobile-bar" role="region" aria-label="Barra superior">
+        <button
+          ref={toggleRef}
+          type="button"
+          className="sidebar-toggle"
+          onClick={() => setIsMenuOpen((open) => !open)}
+          aria-expanded={isMenuOpen}
+          aria-controls="sidebar"
+          aria-label={isMenuOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'}
+        >
+          <img src={profilePhoto} alt="" width="44" height="44" />
+        </button>
+        <ProfileSwitch className="profile-switch--bar" />
+      </div>
 
       {isMenuOpen && (
         <div className="sidebar-backdrop" onClick={() => setIsMenuOpen(false)} aria-hidden="true" />
       )}
 
-      <header id="sidebar" className={`sidebar${isMenuOpen ? ' sidebar--open' : ''}`}>
+      <header
+        id="sidebar"
+        className={`sidebar${isMenuOpen ? ' sidebar--open' : ''}`}
+        // Cerrado en móvil, el menú está fuera de pantalla: inert lo saca del foco y de los lectores.
+        inert={isMobile && !isMenuOpen}
+      >
         <button
+          ref={closeRef}
           type="button"
           className="sidebar__close"
           onClick={() => setIsMenuOpen(false)}

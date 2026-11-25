@@ -13,7 +13,6 @@ import Changarritos from './components/Changarritos/Changarritos'
 import Languages from './components/Languages/Languages'
 import Contact from './components/Contact/Contact'
 import Footer from './components/Footer/Footer'
-import ProfileSwitch from './components/ProfileSwitch/ProfileSwitch'
 import ProfileNotice from './components/ProfileNotice/ProfileNotice'
 import { useProfile } from './profile/ProfileContext'
 import type { SectionId } from './profile/profiles'
@@ -65,7 +64,6 @@ function App() {
   return (
     <>
       <Header onNavigateHome={activeDetail ? () => setActiveDetail(null) : undefined} />
-      <ProfileSwitch className="profile-switch--floating" />
       <ProfileNotice />
       <div className="app-content">
         <AnimatePresence mode="wait">

@@ -1,8 +1,25 @@
-.sidebar-toggle {
+/* Mobile top bar: menu button and profile switch in a solid strip, so nothing
+   floats over the content. Respects the notch / status bar safe areas. */
+.mobile-bar {
   position: fixed;
-  top: var(--space-3);
-  left: var(--space-3);
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  height: calc(var(--mobile-bar-height) + env(safe-area-inset-top));
+  padding: env(safe-area-inset-top) calc(var(--space-3) + env(safe-area-inset-right)) 0
+    calc(var(--space-3) + env(safe-area-inset-left));
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid var(--color-border);
+  backdrop-filter: blur(8px);
+}
+
+.sidebar-toggle {
+  flex-shrink: 0;
   width: 44px;
   height: 44px;
   padding: 0;
@@ -29,7 +46,7 @@
 .sidebar-backdrop {
   position: fixed;
   inset: 0;
-  z-index: 40;
+  z-index: 65;
   background: rgba(8, 10, 15, 0.55);
   animation: sidebar-fade-in 0.2s ease;
 }
@@ -53,7 +70,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 50;
+  z-index: 70;
   width: min(300px, 85vw);
   height: 100dvh;
   overflow-y: auto;
@@ -61,15 +78,17 @@
   flex-direction: column;
   background: var(--sidebar-bg);
   color: var(--sidebar-text);
-  padding: var(--space-5) var(--space-4);
+  padding: calc(var(--space-5) + env(safe-area-inset-top)) var(--space-4)
+    calc(var(--space-5) + env(safe-area-inset-bottom)) calc(var(--space-4) + env(safe-area-inset-left));
   text-align: center;
-  box-shadow: 8px 0 32px rgba(0, 0, 0, 0.3);
   transform: translateX(-100%);
   transition: transform 0.3s ease;
 }
 
+/* The shadow only exists while open, so the closed drawer does not leak a gray edge. */
 .sidebar--open {
   transform: translateX(0);
+  box-shadow: 8px 0 32px rgba(0, 0, 0, 0.3);
 }
 
 .sidebar__close {
@@ -79,8 +98,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: 44px;
+  height: 44px;
   border: none;
   border-radius: 50%;
   background: var(--sidebar-bg-raised);
@@ -132,8 +151,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: var(--sidebar-bg-raised);
   color: var(--sidebar-text);
@@ -159,6 +178,7 @@
   display: flex;
   align-items: center;
   gap: var(--space-3);
+  min-height: 44px;
   color: var(--sidebar-text-muted);
   font-weight: 500;
   font-size: var(--fs-base);
@@ -204,7 +224,7 @@
 }
 
 @media (min-width: 993px) {
-  .sidebar-toggle,
+  .mobile-bar,
   .sidebar-backdrop,
   .sidebar__close {
     display: none;
