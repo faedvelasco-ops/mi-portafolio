@@ -71,6 +71,24 @@ test.describe('Profile switch', () => {
   })
 })
 
+test('the profile switch never covers the name in the hero', { tag: ['@regression'] }, async ({
+  page,
+  portfolio,
+}) => {
+  await portfolio.goto('/dev')
+
+  const switchBox = await portfolio.profileSwitch.boundingBox()
+  const nameBox = await page.getByRole('heading', { level: 1 }).boundingBox()
+  expect(switchBox).not.toBeNull()
+  expect(nameBox).not.toBeNull()
+  const overlaps =
+    switchBox!.x < nameBox!.x + nameBox!.width &&
+    nameBox!.x < switchBox!.x + switchBox!.width &&
+    switchBox!.y < nameBox!.y + nameBox!.height &&
+    nameBox!.y < switchBox!.y + switchBox!.height
+  expect(overlaps).toBe(false)
+})
+
 test.describe('First-visit notice', () => {
   test.use({ showProfileNotice: true })
 
