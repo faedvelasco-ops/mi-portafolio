@@ -1,10 +1,12 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowRight, Download } from 'lucide-react'
 import { LinkedinIcon, GithubIcon } from '../icons/brand-icons'
+import { useProfile } from '../../profile/ProfileContext'
 import './Hero.css'
 
 function Hero() {
   const shouldReduceMotion = useReducedMotion()
+  const { content } = useProfile()
 
   return (
     <section id="hero" className="section hero" aria-labelledby="hero-heading">
@@ -15,17 +17,11 @@ function Hero() {
         transition={{ duration: 0.5, ease: 'easeOut' }}
       >
         <h1 id="hero-heading">Faed Federico Velasco Mero</h1>
-        <p className="hero__role">QA Engineer · Playwright & API Testing</p>
-        <p>
-          QA Engineer en CONTPAQi, con experiencia previa como Ingeniero de Pruebas
-          en IBM. Diseño y ejecuto pruebas funcionales, de regresión y de APIs en
-          aplicaciones empresariales, y en proyectos propios automatizo pruebas E2E
-          y de API con Playwright y TypeScript. El desarrollo de software (React,
-          TypeScript) complementa mi perfil: entiendo cómo se construye lo que pruebo.
-        </p>
+        <p className="hero__role">{content.heroRole}</p>
+        <p>{content.heroIntro}</p>
         <div className="hero__actions">
-          <a className="btn btn--primary" href="#automation-lab">
-            Ver Automation Lab
+          <a className="btn btn--primary" href={content.primaryCta.href}>
+            {content.primaryCta.label}
             <ArrowRight size={18} aria-hidden="true" />
           </a>
           <a

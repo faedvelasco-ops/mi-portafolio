@@ -1,0 +1,88 @@
+.profile-switch {
+  display: inline-flex;
+  padding: 3px;
+  gap: 2px;
+  border: 2px solid var(--color-accent);
+  border-radius: 999px;
+  background: var(--color-bg);
+  box-shadow: var(--shadow);
+}
+
+.profile-switch__option {
+  min-width: 3.5rem;
+  min-height: 34px;
+  padding: 0 var(--space-3);
+  border: none;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-text);
+  font: inherit;
+  font-weight: 600;
+  font-size: var(--fs-sm);
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.profile-switch__option:hover {
+  background: var(--color-accent-bg);
+}
+
+.profile-switch__option[aria-pressed='true'] {
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+}
+
+.profile-switch__option:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Variant inside the dark sidebar. */
+.profile-switch--sidebar {
+  align-self: center;
+  margin-bottom: var(--space-4);
+  border-color: var(--color-accent-on-dark);
+  background: var(--sidebar-bg-raised, #1b212d);
+  box-shadow: none;
+}
+
+.profile-switch--sidebar .profile-switch__option {
+  color: var(--sidebar-text, #f4f6f8);
+}
+
+.profile-switch--sidebar .profile-switch__option[aria-pressed='true'] {
+  background: var(--color-accent-on-dark);
+  color: #12161f;
+}
+
+.profile-switch--sidebar .profile-switch__option:focus-visible {
+  outline-color: var(--color-accent-on-dark);
+}
+
+/* Floating variant for small screens, where the sidebar is a drawer. */
+.profile-switch--floating {
+  position: fixed;
+  top: var(--space-3);
+  right: var(--space-3);
+  z-index: 60;
+}
+
+@media (min-width: 993px) {
+  .profile-switch--floating {
+    display: none;
+  }
+}
+
+@media (max-width: 992px) {
+  .profile-switch--sidebar {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile-switch__option {
+    transition: none;
+  }
+}

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import type { MouseEvent } from 'react'
 import {
   Home,
@@ -13,27 +13,39 @@ import {
 } from 'lucide-react'
 import { LinkedinIcon, GithubIcon } from '../icons/brand-icons'
 import { useActiveSection } from '../../hooks/useActiveSection'
+import { useProfile } from '../../profile/ProfileContext'
+import type { SectionId } from '../../profile/profiles'
+import ProfileSwitch from '../ProfileSwitch/ProfileSwitch'
 import profilePhoto from '../../assets/profile-photo.jpeg'
 import './Header.css'
 
-const navItems = [
-  { id: 'hero', label: 'Inicio', Icon: Home },
-  { id: 'about', label: 'Perfil', Icon: User },
-  { id: 'skills', label: 'Habilidades', Icon: Code2 },
-  { id: 'experience', label: 'Experiencia', Icon: Briefcase },
-  { id: 'automation-lab', label: 'Automation Lab', Icon: FlaskConical },
-  { id: 'education', label: 'Educación', Icon: GraduationCap },
-  { id: 'projects', label: 'Proyectos', Icon: FolderKanban },
-  { id: 'contact', label: 'Contacto', Icon: Mail },
-]
-
-const navSectionIds = navItems.map((item) => item.id)
+/** Sections that appear in the sidebar; their order follows the active profile. */
+const navMeta: Partial<Record<SectionId, { label: string; Icon: typeof Home }>> = {
+  hero: { label: 'Inicio', Icon: Home },
+  about: { label: 'Perfil', Icon: User },
+  skills: { label: 'Habilidades', Icon: Code2 },
+  experience: { label: 'Experiencia', Icon: Briefcase },
+  'automation-lab': { label: 'Automation Lab', Icon: FlaskConical },
+  education: { label: 'Educación', Icon: GraduationCap },
+  projects: { label: 'Proyectos', Icon: FolderKanban },
+  contact: { label: 'Contacto', Icon: Mail },
+}
 
 interface HeaderProps {
   onNavigateHome?: () => void
 }
 
 function Header({ onNavigateHome }: HeaderProps) {
+  const { content } = useProfile()
+  const navItems = useMemo(
+    () =>
+      content.sectionOrder.flatMap((id) => {
+        const meta = navMeta[id]
+        return meta ? [{ id, ...meta }] : []
+      }),
+    [content],
+  )
+  const navSectionIds = useMemo(() => navItems.map((item) => item.id), [navItems])
   const activeId = useActiveSection(navSectionIds, !onNavigateHome)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -100,9 +112,11 @@ function Header({ onNavigateHome }: HeaderProps) {
           <X size={20} aria-hidden="true" />
         </button>
 
+        <ProfileSwitch className="profile-switch--sidebar" />
+
         <img className="sidebar__photo" src={profilePhoto} alt="" width="110" height="110" />
         <p className="sidebar__name">Faed Velasco</p>
-        <p className="sidebar__role">QA Engineer & Desarrollador</p>
+        <p className="sidebar__role">{content.sidebarRole}</p>
 
         <ul className="sidebar__socials">
           <li>

@@ -6,7 +6,7 @@ function Experience() {
   return (
     <section
       id="experience"
-      className="section section--alt experience"
+      className="section experience"
       aria-labelledby="experience-heading"
     >
       <div className="container">

@@ -2,9 +2,12 @@ import { FlaskConical, FileBarChart, PlayCircle } from 'lucide-react'
 import { GithubIcon } from '../icons/brand-icons'
 import { automationProjects } from '../../data/automationLab'
 import Reveal from '../Reveal/Reveal'
+import { useProfile } from '../../profile/ProfileContext'
 import './AutomationLab.css'
 
 function AutomationLab() {
+  const { content } = useProfile()
+
   return (
     <section
       id="automation-lab"
@@ -15,10 +18,7 @@ function AutomationLab() {
         <h2 className="section__heading" id="automation-lab-heading">
           Automation Lab
         </h2>
-        <p className="automation-lab__intro">
-          Proyectos propios de automatización de pruebas, con código, pipeline de CI y
-          reporte de resultados públicos.
-        </p>
+        <p className="automation-lab__intro">{content.automationLabIntro}</p>
         <div className="automation-lab__list">
           {automationProjects.map((project) => (
             <Reveal key={project.id}>

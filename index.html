@@ -2,6 +2,11 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      // Apply the profile accent before React loads to avoid a color flash on /dev.
+      document.documentElement.dataset.profile =
+        location.pathname === '/dev' || location.pathname === '/dev/' ? 'dev' : 'qa'
+    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Faed Velasco — QA Engineer · Playwright &amp; API Testing</title>

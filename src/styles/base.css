@@ -142,7 +142,8 @@ td {
   padding-block: var(--space-6);
 }
 
-.section--alt {
+.section--alt,
+.home > .section:nth-of-type(even) {
   background: var(--color-bg-alt);
 }
 

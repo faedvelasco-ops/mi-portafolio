@@ -1,12 +1,15 @@
 import profilePhoto from '../../assets/profile-photo.jpeg'
 import Reveal from '../Reveal/Reveal'
+import { useProfile } from '../../profile/ProfileContext'
 import './About.css'
 
 function About() {
+  const { content } = useProfile()
+
   return (
     <section
       id="about"
-      className="section section--alt about"
+      className="section about"
       aria-labelledby="about-heading"
     >
       <div className="container">
@@ -25,27 +28,14 @@ function About() {
               <h2 className="section__heading" id="about-heading">
                 Perfil profesional
               </h2>
-              <p>
-                QA Engineer con experiencia en aseguramiento de calidad de
-                aplicaciones empresariales: pruebas funcionales, exploratorias, de
-                regresión y de APIs, gestión de defectos en Azure DevOps y trabajo
-                con equipos de desarrollo bajo Scrum.
-              </p>
-              <p>
-                Fuera del trabajo construyo proyectos de automatización con Playwright
-                y TypeScript (ver Automation Lab) y proyectos de desarrollo de
-                principio a fin (ver Changarritos). Mi formación en desarrollo de
-                software (React, TypeScript, Java, Python) y en ciencia de datos me
-                permite entender cómo se construye lo que pruebo y comunicarme con
-                los desarrolladores en su mismo lenguaje.
-              </p>
+              {content.aboutParagraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
               <h3>Especialidades</h3>
               <ul className="about__specialties">
-                <li>Pruebas funcionales, exploratorias y de regresión</li>
-                <li>Pruebas de APIs REST (Postman, Swagger)</li>
-                <li>Automatización E2E y de API con Playwright y TypeScript (proyectos propios)</li>
-                <li>Gestión de defectos con Azure DevOps y metodologías ágiles (Scrum)</li>
-                <li>Desarrollo frontend con React y TypeScript</li>
+                {content.specialties.map((specialty) => (
+                  <li key={specialty}>{specialty}</li>
+                ))}
               </ul>
             </div>
           </div>

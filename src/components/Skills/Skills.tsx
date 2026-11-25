@@ -3,6 +3,7 @@ import type { LucideIcon } from 'lucide-react'
 import { ClipboardCheck, Bot, Plug, Terminal, LayoutGrid, Users, ChevronLeft, ChevronRight } from 'lucide-react'
 import { skillCategories } from '../../data/skills'
 import Reveal from '../Reveal/Reveal'
+import { useProfile } from '../../profile/ProfileContext'
 import './Skills.css'
 
 const categoryIcons: Record<string, LucideIcon> = {
@@ -16,6 +17,10 @@ const categoryIcons: Record<string, LucideIcon> = {
 
 function Skills() {
   const trackRef = useRef<HTMLDivElement>(null)
+  const { content } = useProfile()
+  const orderedCategories = [...skillCategories].sort(
+    (a, b) => content.skillOrder.indexOf(a.id) - content.skillOrder.indexOf(b.id),
+  )
 
   const scrollByCard = (direction: 1 | -1) => {
     trackRef.current?.scrollBy({ left: direction * 300, behavior: 'smooth' })
@@ -39,7 +44,7 @@ function Skills() {
             </button>
 
             <div className="skills__track" ref={trackRef}>
-              {skillCategories.map((category) => {
+              {orderedCategories.map((category) => {
                 const Icon = categoryIcons[category.id]
                 return (
                   <article
