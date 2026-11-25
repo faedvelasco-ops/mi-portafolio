@@ -8,6 +8,7 @@ interface HCaptchaInstance {
     container: HTMLElement,
     options: {
       sitekey: string
+      size?: 'normal' | 'compact'
       callback: (token: string) => void
       'expired-callback'?: () => void
     },
@@ -54,8 +55,12 @@ function useHCaptcha(siteKey: string | undefined) {
       if (cancelled) return
       const hcaptcha = window.hcaptcha
       if (hcaptcha && containerRef.current && widgetId.current === null) {
+        // The normal widget is ~303px wide; on very narrow screens use the compact one
+        // so the form never causes horizontal scrolling.
+        const size = containerRef.current.clientWidth < 304 ? 'compact' : 'normal'
         widgetId.current = hcaptcha.render(containerRef.current, {
           sitekey: siteKey,
+          size,
           callback: (value) => setToken(value),
           'expired-callback': () => setToken(''),
         })
