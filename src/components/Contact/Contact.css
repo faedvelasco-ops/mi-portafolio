@@ -41,6 +41,8 @@
 
 @media (max-width: 768px) {
   .contact__layout {
-    grid-template-columns: 1fr;
+    /* minmax(0, 1fr) instead of 1fr: a 1fr track never shrinks below its content's
+       min-content width, which overflowed 320px screens with wider fonts (Linux CI). */
+    grid-template-columns: minmax(0, 1fr);
   }
 }

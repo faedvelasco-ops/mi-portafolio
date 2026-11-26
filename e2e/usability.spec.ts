@@ -50,10 +50,25 @@ test.describe('Responsive layout', () => {
         await page.goto(path)
         await expect(page.locator('.hero__role')).toBeVisible()
 
-        const overflow = await page.evaluate(
-          () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
-        )
-        expect(overflow, `${path} at ${viewport.width}x${viewport.height}`).toBeLessThanOrEqual(0)
+        const { overflow, culprits } = await page.evaluate(() => {
+          const width = document.documentElement.clientWidth
+          // Innermost elements that stick out to the right: tells CI logs what to fix.
+          const outside = [...document.querySelectorAll<HTMLElement>('body *')].filter(
+            (element) =>
+              element.getBoundingClientRect().right > width + 0.5 &&
+              !element.closest('.skills__track') && // horizontal carousel scrolls on purpose
+              getComputedStyle(element).position !== 'fixed',
+          )
+          const innermost = outside.filter((element) => ![...element.children].some((child) => outside.includes(child as HTMLElement)))
+          return {
+            overflow: document.documentElement.scrollWidth - width,
+            culprits: innermost.slice(0, 5).map((element) => `${element.tagName.toLowerCase()}.${element.className}`),
+          }
+        })
+        expect(
+          overflow,
+          `${path} at ${viewport.width}x${viewport.height}; elements past the edge: ${culprits.join(', ') || 'none'}`,
+        ).toBeLessThanOrEqual(0)
         await context.close()
       }
     }
